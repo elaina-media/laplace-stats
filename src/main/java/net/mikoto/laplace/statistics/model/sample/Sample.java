@@ -18,5 +18,5 @@ public class Sample {
     private String battleName;
     private SampleLifeCycle sampleLifeCycle;
     private Date createTime;
-    private int count;
+    private int battleCount;
 }
