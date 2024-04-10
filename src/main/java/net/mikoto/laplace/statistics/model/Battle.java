@@ -9,8 +9,8 @@ import lombok.Data;
  */
 @Data
 public class Battle {
-    private int battleId;
+    private int id;
     private String battleName;
     private long sampleCount;
-    private int cell;
+    private int cellCost;
 }

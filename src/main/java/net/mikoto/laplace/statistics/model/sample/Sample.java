@@ -19,4 +19,9 @@ public class Sample {
     private SampleLifeCycle sampleLifeCycle;
     private Date createTime;
     private int battleCount;
+
+    public enum SampleLifeCycle {
+        Queue,
+        Stored
+    }
 }
