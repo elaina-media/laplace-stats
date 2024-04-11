@@ -1,6 +1,7 @@
 package net.mikoto.laplace.statistics.model;
 
 import com.mybatisflex.annotation.Id;
+import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Data;
  * Create for laplace-statistics
  */
 @Data
+@Table("item")
 public class Item {
     @Id
     private int id;

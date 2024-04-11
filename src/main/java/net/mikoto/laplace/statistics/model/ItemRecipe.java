@@ -1,5 +1,6 @@
 package net.mikoto.laplace.statistics.model;
 
+import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
 /**
@@ -8,6 +9,7 @@ import lombok.Data;
  * Create for laplace-statistics
  */
 @Data
+@Table("item_recipe")
 public class ItemRecipe {
     private int sourceItemId;
     private int targetItemId;

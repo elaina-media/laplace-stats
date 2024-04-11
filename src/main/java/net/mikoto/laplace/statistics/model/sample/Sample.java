@@ -1,6 +1,7 @@
 package net.mikoto.laplace.statistics.model.sample;
 
 import com.mybatisflex.annotation.Id;
+import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
 import java.util.Date;

@@ -1,5 +1,6 @@
 package net.mikoto.laplace.statistics.model;
 
+import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.Date;
  * Create for laplace-statistics
  */
 @Data
+@Table("reward")
 public class Reward {
     private int itemId;
     private int battleId;
