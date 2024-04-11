@@ -12,5 +12,5 @@ import lombok.Data;
 public class Item {
     @Id
     private int id;
-    private String item_name;
+    private String itemName;
 }
