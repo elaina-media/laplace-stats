@@ -1,5 +1,6 @@
 package net.mikoto.laplace.statistics.service.impl;
 
+import cn.hutool.core.util.RandomUtil;
 import com.mybatisflex.core.query.QueryWrapper;
 import net.mikoto.laplace.statistics.mapper.AdminMapper;
 import net.mikoto.laplace.statistics.model.Admin;
@@ -22,15 +23,30 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public boolean checkAdmin(String username, String password) {
+    public int checkAdmin(String username, String password) {
         QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("name", username);
         Admin admin = adminMapper.selectOneByQuery(queryWrapper);
         if (admin == null) {
-            return false;
+            return 0;
         }
 
         String encryptedPassword = admin.getSalt() + "_" + password + "_laplace-stats";
-        return admin.getPassword().equals(encryptedPassword);
+        return admin.getPassword().equals(encryptedPassword) ? admin.getId() : 0;
+    }
+
+    @Override
+    public Admin register(Admin admin, String rawPassword) {
+        admin.setSalt(RandomUtil.randomString(10));
+        String encryptedPassword = admin.getSalt() + "_" + rawPassword + "_laplace-stats";
+        admin.setPassword(encryptedPassword);
+
+        adminMapper.insert(admin);
+
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("name", admin.getName());
+        admin = adminMapper.selectOneByQuery(queryWrapper);
+
+        return admin;
     }
 }
