@@ -4,6 +4,8 @@ import com.mybatisflex.annotation.Id;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author mikoto
@@ -16,17 +18,18 @@ public class Sample {
     private long id;
     private long battleId;
     private String battleName;
-    private SampleLifeCycle sampleLifeCycle;
+    private Set<SampleReward> sampleRewards = new HashSet<>();
     private Date createTime;
     private int battleCount;
 
     public Sample() {
         createTime = new Date();
-        sampleLifeCycle = SampleLifeCycle.Queue;
     }
 
-    public enum SampleLifeCycle {
-        Queue,
-        Stored
+    @Data
+    public static class SampleReward {
+        private long sampleId;
+        private int itemId;
+        private int quantity;
     }
 }
