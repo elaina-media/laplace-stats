@@ -1,6 +1,6 @@
 package net.mikoto.laplace.statistics.service;
 
-import com.mybatisflex.core.service.IService;
+import net.mikoto.laplace.statistics.model.sample.Sample;
 
 /**
  * @author mikoto
@@ -8,4 +8,5 @@ import com.mybatisflex.core.service.IService;
  * Create for laplace-statistics
  */
 public interface SampleService {
+    void save(Sample sample);
 }

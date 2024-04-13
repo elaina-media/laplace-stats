@@ -1,7 +1,6 @@
 package net.mikoto.laplace.statistics.model.sample;
 
 import com.mybatisflex.annotation.Id;
-import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
 import java.util.Date;
@@ -20,6 +19,11 @@ public class Sample {
     private SampleLifeCycle sampleLifeCycle;
     private Date createTime;
     private int battleCount;
+
+    public Sample() {
+        createTime = new Date();
+        sampleLifeCycle = SampleLifeCycle.Queue;
+    }
 
     public enum SampleLifeCycle {
         Queue,
