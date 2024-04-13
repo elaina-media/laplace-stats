@@ -1,4 +1,4 @@
-package net.mikoto.laplace.statistics.model.sample;
+package net.mikoto.laplace.statistics.model;
 
 import com.mybatisflex.annotation.Id;
 import lombok.Data;

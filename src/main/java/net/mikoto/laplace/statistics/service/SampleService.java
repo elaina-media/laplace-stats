@@ -1,6 +1,6 @@
 package net.mikoto.laplace.statistics.service;
 
-import net.mikoto.laplace.statistics.model.sample.Sample;
+import net.mikoto.laplace.statistics.model.Sample;
 
 /**
  * @author mikoto

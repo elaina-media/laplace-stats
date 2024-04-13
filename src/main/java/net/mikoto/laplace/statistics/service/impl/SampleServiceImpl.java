@@ -1,6 +1,6 @@
 package net.mikoto.laplace.statistics.service.impl;
 
-import net.mikoto.laplace.statistics.model.sample.Sample;
+import net.mikoto.laplace.statistics.model.Sample;
 import net.mikoto.laplace.statistics.service.SampleService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
