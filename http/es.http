@@ -1,0 +1,42 @@
+### Create Index
+PUT http://192.168.123.90:9200/reward
+Content-Type: application/json
+
+{
+  "mappings": {
+    "properties": {
+      "itemId": {
+        "type": "integer",
+        "index": true
+      },
+      "battleId": {
+        "type": "integer",
+        "index": true
+      },
+      "quantity": {
+        "type": "long",
+        "index": true
+      },
+      "rangeStartTime": {
+        "type": "date",
+        "index": true
+      },
+      "rangeEndTime": {
+        "type": "date",
+        "index": true
+      },
+      "dailyQuantity": {
+        "properties": {
+          "date": {
+            "type": "date",
+            "index": true
+          },
+          "quantity": {
+            "type": "long",
+            "index": true
+          }
+        }
+      }
+    }
+  }
+}
