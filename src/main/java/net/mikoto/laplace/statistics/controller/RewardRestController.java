@@ -1,5 +1,6 @@
 package net.mikoto.laplace.statistics.controller;
 
+import com.alibaba.fastjson2.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,4 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/reward")
 public class RewardRestController {
+    @RequestMapping("/_add")
+    public JSONObject add() {
+        return null;
+    }
+    @RequestMapping("/_remove")
+    public JSONObject remove() {
+        return null;
+    }
+    @RequestMapping("/_update")
+    public JSONObject update() {
+        return null;
+    }
+    @RequestMapping("/_get")
+    public JSONObject get() {
+        return null;
+    }
 }
