@@ -1,5 +1,6 @@
 package net.mikoto.laplace.statistics.model;
 
+import com.mybatisflex.annotation.Id;
 import com.mybatisflex.annotation.Table;
 import lombok.Data;
 
@@ -11,6 +12,7 @@ import lombok.Data;
 @Data
 @Table("battle")
 public class Battle {
+    @Id
     private int id;
     private String battleName;
     private long sampleCount;
