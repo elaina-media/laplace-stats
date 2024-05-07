@@ -18,6 +18,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
     implementation 'com.mybatis-flex:mybatis-flex-spring-boot-starter:1.8.6'
     implementation 'org.springframework.boot:spring-boot-starter-amqp:3.2.4'
     implementation 'com.alibaba.fastjson2:fastjson2:2.0.48'
