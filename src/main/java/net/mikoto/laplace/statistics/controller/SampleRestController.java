@@ -1,11 +1,14 @@
 package net.mikoto.laplace.statistics.controller;
 
 import com.alibaba.fastjson2.JSONObject;
+import net.mikoto.laplace.statistics.mapper.BattleMapper;
 import net.mikoto.laplace.statistics.model.Sample;
+import net.mikoto.laplace.statistics.service.AdminService;
 import net.mikoto.laplace.statistics.service.SampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -23,7 +26,10 @@ public class SampleRestController {
         this.sampleService = sampleService;
     }
 
-    @RequestMapping("/_create")
+    @RequestMapping(
+            value = "/_create",
+            method = RequestMethod.POST
+    )
     public void createSample(@RequestBody JSONObject sampleJson) {
         Sample sample = sampleJson.toJavaObject(Sample.class);
         sampleService.save(sample);
