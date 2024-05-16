@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
  * Create for laplace-statistics
  */
 @RestController
-@RequestMapping("/item")
-public class ItemRestController {
+@RequestMapping("/itemRecipe")
+public class ItemRecipeRestController {
     @RequestMapping(
             value = "/_add",
             method = RequestMethod.POST
