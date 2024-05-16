@@ -11,11 +11,11 @@ import java.util.Date;
  * Create for laplace-statistics
  */
 @Data
-@Table("reward")
 public class Reward {
     private int itemId;
     private int battleId;
     private long quantity;
+    private String server;
     private Date rangeStartTime;
     private Date rangeEndTime;
 }

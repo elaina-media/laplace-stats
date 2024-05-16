@@ -14,13 +14,13 @@ import java.util.Set;
  */
 @Data
 public class Sample {
-    @Id
     private long id;
     private long battleId;
     private String battleName;
     private Set<SampleReward> sampleRewards = new HashSet<>();
-    private Date createTime;
     private int battleCount;
+    private String server;
+    private Date createTime;
 
     public Sample() {
         createTime = new Date();

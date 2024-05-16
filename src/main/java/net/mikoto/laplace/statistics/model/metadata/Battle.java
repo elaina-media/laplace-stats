@@ -1,4 +1,4 @@
-package net.mikoto.laplace.statistics.model;
+package net.mikoto.laplace.statistics.model.metadata;
 
 import com.mybatisflex.annotation.Id;
 import com.mybatisflex.annotation.Table;
@@ -10,9 +10,11 @@ import lombok.Data;
  * Create for laplace-statistics
  */
 @Data
-@Table("item")
-public class Item {
+@Table("battle")
+public class Battle {
     @Id
     private int id;
-    private String itemName;
+    private String battleName;
+    private long sampleCount;
+    private int cellCost;
 }

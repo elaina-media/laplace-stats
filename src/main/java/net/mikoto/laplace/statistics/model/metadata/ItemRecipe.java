@@ -1,4 +1,4 @@
-package net.mikoto.laplace.statistics.model;
+package net.mikoto.laplace.statistics.model.metadata;
 
 import com.mybatisflex.annotation.Table;
 import lombok.Data;
