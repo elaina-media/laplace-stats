@@ -18,6 +18,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.alibaba.boot:nacos-config-spring-boot-starter:0.3.0-RC'
+    implementation 'com.alibaba.boot:nacos-discovery-spring-boot-starter:0.3.0-RC'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
     implementation 'com.mybatis-flex:mybatis-flex-spring-boot-starter:1.8.6'
     implementation 'org.springframework.boot:spring-boot-starter-amqp:3.2.4'
