@@ -2,7 +2,6 @@ package net.mikoto.laplace.statistics.service.impl;
 
 import cn.dev33.satoken.stp.StpInterface;
 import com.mybatisflex.core.query.QueryWrapper;
-import net.mikoto.laplace.statistics.mapper.AdminMapper;
 import net.mikoto.laplace.statistics.mapper.PermissionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

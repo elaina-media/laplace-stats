@@ -1,9 +1,7 @@
 package net.mikoto.laplace.statistics.controller;
 
 import com.alibaba.fastjson2.JSONObject;
-import net.mikoto.laplace.statistics.mapper.BattleMapper;
 import net.mikoto.laplace.statistics.model.Sample;
-import net.mikoto.laplace.statistics.service.AdminService;
 import net.mikoto.laplace.statistics.service.SampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

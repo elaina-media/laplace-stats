@@ -1,9 +1,7 @@
 package net.mikoto.laplace.statistics.service.impl;
 
-import cn.hutool.core.util.HashUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.digest.DigestUtil;
-import cn.hutool.crypto.digest.Digester;
 import com.mybatisflex.core.query.QueryWrapper;
 import net.mikoto.laplace.statistics.mapper.AdminMapper;
 import net.mikoto.laplace.statistics.model.Admin;
