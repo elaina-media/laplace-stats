@@ -2,6 +2,9 @@ package net.mikoto.laplace.statistics.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import com.alibaba.fastjson2.JSONObject;
+import net.mikoto.laplace.statistics.mapper.ItemRecipeMapper;
+import net.mikoto.laplace.statistics.model.metadata.ItemRecipe;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/itemRecipe")
 public class ItemRecipeRestController {
+    private final ItemRecipeMapper itemRecipeMapper;
+
+    @Autowired
+    public ItemRecipeRestController(ItemRecipeMapper itemRecipeMapper) {
+        this.itemRecipeMapper = itemRecipeMapper;
+    }
+
     @RequestMapping(
             value = "/_add",
             method = RequestMethod.POST
@@ -32,7 +42,13 @@ public class ItemRecipeRestController {
             return result;
         }
 
-        return null;
+        itemRecipeMapper.insert(params.toJavaObject(ItemRecipe.class));
+
+        ItemRecipe itemRecipe = itemRecipeMapper.selectOneByMap(params);
+        result.put("success", true);
+        result.put("msg", "");
+        result.put("body", JSONObject.from(itemRecipe));
+        return result;
     }
 
 
@@ -53,7 +69,13 @@ public class ItemRecipeRestController {
             return result;
         }
 
-        return null;
+        itemRecipeMapper.update(params.toJavaObject(ItemRecipe.class));
+
+        ItemRecipe itemRecipe = itemRecipeMapper.selectOneById(params.getInteger("id"));
+        result.put("success", true);
+        result.put("msg", "");
+        result.put("body", JSONObject.from(itemRecipe));
+        return result;
     }
 
     @RequestMapping(
@@ -63,7 +85,11 @@ public class ItemRecipeRestController {
     public JSONObject get(@RequestBody JSONObject params) {
         JSONObject result = new JSONObject();
 
-        return null;
+        ItemRecipe itemRecipe = itemRecipeMapper.selectOneById(params.getInteger("id"));
+        result.put("success", true);
+        result.put("msg", "");
+        result.put("body", JSONObject.from(itemRecipe));
+        return result;
     }
 
     @RequestMapping(
@@ -83,6 +109,12 @@ public class ItemRecipeRestController {
             return result;
         }
 
-        return null;
+        itemRecipeMapper.delete(params.toJavaObject(ItemRecipe.class));
+
+        ItemRecipe itemRecipe = itemRecipeMapper.selectOneById(params.getInteger("id"));
+        result.put("success", true);
+        result.put("msg", "");
+        result.put("body", JSONObject.from(itemRecipe));
+        return result;
     }
 }

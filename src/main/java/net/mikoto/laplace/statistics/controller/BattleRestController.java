@@ -2,6 +2,9 @@ package net.mikoto.laplace.statistics.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import com.alibaba.fastjson2.JSONObject;
+import net.mikoto.laplace.statistics.mapper.BattleMapper;
+import net.mikoto.laplace.statistics.model.metadata.Battle;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/battle")
 public class BattleRestController {
+    private final BattleMapper battleMapper;
+
+    @Autowired
+    public BattleRestController(BattleMapper battleMapper) {
+        this.battleMapper = battleMapper;
+    }
+
     @RequestMapping(
             value = "/_add",
             method = RequestMethod.POST
@@ -32,7 +42,13 @@ public class BattleRestController {
             return result;
         }
 
-        return null;
+        battleMapper.insert(params.toJavaObject(Battle.class));
+
+        Battle battle = battleMapper.selectOneById(params.getInteger("id"));
+        result.put("success", true);
+        result.put("msg", "");
+        result.put("body", JSONObject.from(battle));
+        return result;
     }
 
 
@@ -53,7 +69,13 @@ public class BattleRestController {
             return result;
         }
 
-        return null;
+        battleMapper.update(params.toJavaObject(Battle.class));
+
+        Battle battle = battleMapper.selectOneById(params.getInteger("id"));
+        result.put("success", true);
+        result.put("msg", "");
+        result.put("body", JSONObject.from(battle));
+        return result;
     }
 
     @RequestMapping(
@@ -63,7 +85,11 @@ public class BattleRestController {
     public JSONObject get(@RequestBody JSONObject params) {
         JSONObject result = new JSONObject();
 
-        return null;
+        Battle battle = battleMapper.selectOneById(params.getInteger("id"));
+        result.put("success", true);
+        result.put("msg", "");
+        result.put("body", JSONObject.from(battle));
+        return result;
     }
 
     @RequestMapping(
@@ -83,6 +109,11 @@ public class BattleRestController {
             return result;
         }
 
-        return null;
+        battleMapper.delete(params.toJavaObject(Battle.class));
+
+        result.put("success", true);
+        result.put("msg", "");
+        result.put("body", new JSONObject());
+        return result;
     }
 }
